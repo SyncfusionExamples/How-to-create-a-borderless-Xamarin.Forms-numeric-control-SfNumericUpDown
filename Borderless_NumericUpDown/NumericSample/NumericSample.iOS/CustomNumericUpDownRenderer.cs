@@ -15,7 +15,7 @@ namespace NumericSample.iOS
             if (this.Control != null)
             {
                 /// For Achieving Borderwidth customization.
-                this.Control.BorderStyle = UITextBorderStyle.None;
+               this.Control.Layer.BorderWidth = 0f;
             }
         }
     }
