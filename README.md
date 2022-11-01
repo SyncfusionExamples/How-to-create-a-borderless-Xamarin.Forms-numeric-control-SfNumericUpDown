@@ -1,6 +1,6 @@
 # How to create a borderless Xamarin.Forms numeric control SfNumericUpDown
 
-This repository contains sample for how to create a borderless [Syncfusion Xamarin.Forms Numeric UpDown](https://help.syncfusion.com/xamarin/numericupdown/getting-started) control.
+This repository contains sample to create a borderless [Syncfusion Xamarin.Forms Numeric UpDown](https://help.syncfusion.com/xamarin/numericupdown/getting-started) control.
 
 Please refer the KB through this [link](https://www.syncfusion.com/kb/11873/how-to-create-a-borderless-xamarin-forms-numeric-control-sfnumericupdown).
 
