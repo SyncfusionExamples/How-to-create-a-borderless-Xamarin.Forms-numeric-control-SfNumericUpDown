@@ -1,89 +1,52 @@
-# How to create a borderless Xamarin.Forms numeric control (SfNumericUpDown)
+# How to create a borderless Xamarin.Forms numeric control SfNumericUpDown
 
-This article explains how to create a Syncfusion SfNumericUpDown without having its border as per in the following image
+This repository contains sample to create a borderless [Syncfusion Xamarin.Forms Numeric UpDown](https://help.syncfusion.com/xamarin/numericupdown/getting-started) control.
 
-![](Output.png) 
+Please refer the KB through this [link](https://www.syncfusion.com/kb/11873/how-to-create-a-borderless-xamarin-forms-numeric-control-sfnumericupdown).
 
-It has been achieved by using its custom renderer of Xamarin.Forms SfNumericUpDown with platform specific as per in the below code changes.
+## Syncfusion controls:
 
-**[XAML]**
+This project used the following Syncfusion control(s):
+* [SfNumericUpDown](https://www.syncfusion.com/xamarin-ui-controls/xamarin-numericupdown)
 
-*Control initialization with custom numericUpDown class*
+## Supported platforms
 
- ```   
- <local:CustomNumericUpDown x:Name="sfNumericUpDown" HeightRequest="100"  Value="100" AllowNull="false" FormatString="n"/>
-```
-*Create a CustomNumericUpDown class which is inherited from SfNumericUpDown.*
+| Platforms | Supported versions |
+| --------- | ------------------ |
+| Android   | API level 21 and later versions |
+| iOS | iOS 9.0 and later versions |
+| UWP | Windows 10 devices |
 
-```
-    public class CustomNumericUpDown : SfNumericUpDown
-    {
-    }
-```
+## Requirements to run the sample
 
-## Android
-It has been achieved by setting null to the EditText Background which is a child of native numeric control as shown in below
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/) or [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/)
 
-```
-        protected override void OnElementChanged(ElementChangedEventArgs<Syncfusion.SfNumericUpDown.XForms.SfNumericUpDown> e)
-        {
-            base.OnElementChanged(e);
-            if (Control != null)
-            {
-                for (int i = 0; i < Control.ChildCount; i++)
-                {
-                    var child = Control.GetChildAt(i);
-                    if (child is EditText)
-                    {
-                        var control = child as EditText;
-                        control.Background = null;
-                    }
-                }
-            }
-        }
-```
+Refer to the following link for more details - [System Requirements](https://help.syncfusion.com/xamarin/system-requirements)
 
-## iOS
-To achieve the same in iOS, set the 0 as border width of its native control.
+## How to run the sample
 
-```
-        protected override void OnElementChanged(ElementChangedEventArgs<Syncfusion.SfNumericUpDown.XForms.SfNumericUpDown> e)
-        {
-            base.OnElementChanged(e);
-            if (this.Control != null)
-            {
-                /// For Achieving Borderwidth customization.
-                this.Control.Layer.BorderWidth = 0f;
-            }
-        }
-```
+1. Clone the sample and open it in Visual Studio.
 
-## UWP
-By setting the 0 as border thickness as shown in below
+   *Note: If you download the sample using the "Download ZIP" option, right-click it, select Properties, and then select Unblock.*
+   
+2. Register your license key in the App.xaml.cs file as demonstrated in the following code.
 
-```
-        protected override void OnElementChanged(ElementChangedEventArgs<SfNumericUpDown> e)
-        {
-            base.OnElementChanged(e);
-            if (Control != null)
-            {
-                Control.BorderThickness = new Windows.UI.Xaml.Thickness(0);
-            }
-        }
-```
+		public App()
+		{
+			//Register Syncfusion license
+			Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("YOUR LICENSE KEY");
+	
+			InitializeComponent();
+	
+			MainPage = new App1.MainPage();
+		}
+		
+	Refer to this [link](https://help.syncfusion.com/xamarin/licensing/overview) for more details.
+	
+3. Clean and build the application.
 
-## See also
+4. Run the application.
 
-[How to change border thickness of numeric control](https://www.syncfusion.com/kb/7633/how-to-change-borderwidth-of-numericupdown-by-using-custom-renderer)
+## License
 
-[Spin Button Customization in Xamarin NumericUpDown (SfNumericUpDown)](https://help.syncfusion.com/xamarin/numericupdown/spin-button-customization)
-
-[How to customize the color appearance of numeric controls in Xamarin.Forms](https://www.syncfusion.com/kb/11610/how-to-customize-the-color-appearance-of-numeric-controls-in-xamarin-forms)
-
-[How to customize the spin button of the NumericUpDown](https://www.syncfusion.com/kb/10156/how-to-customise-the-spin-button-of-the-numericupdown)
-
-[Auto Reverse in Xamarin NumericUpDown (SfNumericUpDown)](https://help.syncfusion.com/xamarin/numericupdown/auto-reverse)
-
-
-
-
+Syncfusion has no liability for any damage or consequence that may arise by using or viewing the samples. The samples are for demonstrative purposes, and if you choose to use or access the samples, you agree to not hold Syncfusion liable, in any form, for any damage that is related to use, for accessing, or viewing the samples. By accessing, viewing, or seeing the samples, you acknowledge and agree Syncfusion’s samples will not allow you seek injunctive relief in any form for any claim related to the sample. If you do not agree to this, do not view, access, utilize, or otherwise do anything with Syncfusion’s samples.
